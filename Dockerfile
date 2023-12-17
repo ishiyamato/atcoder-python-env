@@ -17,6 +17,6 @@ RUN echo 'alias agen="atcoder-tools gen --without-login --template /root/.atcode
 RUN echo 'alias agenlogin="atcoder-tools gen --template /root/.atcodertools/template/template.py --lang=python"' >> /root/.bashrc
 RUN echo 'alias asub="atcoder-tools submit -u"' >> /root/.bashrc
 
-RUN curl -s -S https://raw.githubusercontent.com/ishiyamato/AtCoder/51dd7fb363c7f40956f40686feabf28a347505f4/template.py >> /root/.atcodertools/template/template.py
+RUN curl -s -S https://raw.githubusercontent.com/ishiyamato/atcoder-python-env/c6fd9a64e82f5184916484b142bbb508acab31c4/template.py >> /root/.atcodertools/template/template.py
 # RUN curl -s -S https://raw.githubusercontent.com/ishiyamato/AtCoder/51dd7fb363c7f40956f40686feabf28a347505f4/algorithm.py >> /root/atcoder-workspace/algorighm.py
 CMD ["/bin/bash"]
