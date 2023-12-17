@@ -18,7 +18,7 @@ https://code.visualstudio.com/ から、VSCodeをインストールしてくだ�
 
 #### Docker Desktop
 
-https://docs.docker.com/desktop/ から、Docker Desktopをインストールしてください。
+https://docs.docker.com/get-docker/ から、Docker Desktopをインストールしてください。
 
 ### Dockerコンテナの起動
 
