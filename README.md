@@ -8,15 +8,15 @@ VSCodeのRemote Containerを使って、VSCode上で動かすことを想定し�
 ### インストール
 
 ```bash
-C:\Users\user> git clone
+C:\Users\user> git clone git@github.com:ishiyamato/atcoder-python-env.git
 C:\Users\user> cd atcoder-python-env
 ```
 
-#### visual studio codeのインストール
+#### Visual Studio Code
 
 https://code.visualstudio.com/ から、VSCodeをインストールしてください。
 
-#### Docker Desktopのインストール
+#### Docker Desktop
 
 https://docs.docker.com/desktop/ から、Docker Desktopをインストールしてください。
 
@@ -32,34 +32,42 @@ VSCodeを開き、左下端の[><]ボタンから、`実行中のコンテナに
 
 ### 問題の取得
 
-VSCodeの左側のエクスプローラから、`フォルダーを開く`を選択し、`atcoder-workspace`を選択してください。
+VSCode内でターミナルを開き、取得したい問題のコンテスト名を引数にして、`agen`を実行してください。 ex) `agen abc333`
 
-次にターミナルを開き、取得したい問題のコンテスト名を引数にして、`agen`を実行してください。 ex) `agen abc002`
+フォルダが作成され、その中に問題ごとのフォルダが作成されます。中にある`main.py`を適切に編集してください。
+
 ```bash
-user@host:~/atcoder-workspace$ agen abc333
+root@container:~/atcoder-workspace# agen abc333
+root@container:~/atcoder-workspace# ls
+abc333
+root@container:~/atcoder-workspace# ls abc333
+A  B  C  D  E  F
+root@container:~/atcoder-workspace# ls abc333/A
+in_1.txt  in_2.txt  main.py  metadata.json  out_1.txt  out_2.txt
+root@container:~/atcoder-workspace# cd abc333/A
+root@container:~/atcoder-workspace/abc333/A# code main.py
 ```
-`abc333`フォルダが作成され、その中に`A`などの問題ごとのフォルダが作成されます。
-中にある`main.py`を適切に編集してください。
 
 ### テスト
 
 `main.py`があるフォルダ内で、ターミナルで`atest`を実行してください。
 
 ```bash
-user@host:~/atcoder-workspace/abc333/A$ atest
+root@container:~/atcoder-workspace/abc333/A# atest
 ```
 
 ### 提出
 
 `main.py`があるフォルダ内で、ターミナルで`asub`を実行してください。
-これまでに１度もログインしていない場合にはログインが必要となるので、提出の前に`agenlogin`を実行し、Atcoderのアカウントでログインしてください。
-  
-  ```bash
-  user@host:~/atcoder-workspace/abc333/A$ agenlogin abc001 # ログインしていない場合のみ
-  
-  user@host:~/atcoder-workspace/abc333/A$ asub
-  ```
-  
+
+ただし、これまで１度もログインしていない場合にはログインが必要となります。提出の前に`agenlogin`を実行し、Atcoderのアカウントでログインしてください。
+
+```bash
+root@container:~/atcoder-workspace/abc333/A# agenlogin abc001 # ログインしていない場合のみ
+AtCoder username: user
+AtCoder password:
+root@container:~/atcoder-workspace/abc333/A# asub
+```
 
 ## コマンドエイリアス
 
